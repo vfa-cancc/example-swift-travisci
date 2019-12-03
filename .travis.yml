@@ -1,0 +1,13 @@
+language: swift
+osx_image: xcode11.2
+xcode_workspace: example-swift-travisci.xcodeproj
+
+before_install:
+  - brew install carthage || true
+  - brew outdated carthage || brew upgrade carthage
+  - brew update && brew install swiftlint
+  - gem install xcpretty-travis-formatter
+before_script:
+  - bash setup.sh
+script:
+  - xcodebuild -scheme example-swift-travisci -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2' build test | xcpretty -f `xcpretty-travis-formatter`
