@@ -10,4 +10,4 @@ before_install:
 before_script:
   - bash setup.sh
 script:
-  - xcodebuild -scheme example-swift-travisci -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2' build test | xcpretty -f `xcpretty-travis-formatter`
+  - xcodebuild -scheme example-swift-travisci -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2.2' build test | xcpretty -f `xcpretty-travis-formatter`
